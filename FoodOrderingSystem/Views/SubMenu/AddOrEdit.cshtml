@@ -1,0 +1,21 @@
+﻿@model OnlineFoodOrderingSystem.Models.ViewModel.SubMenuViewModel
+
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("AddOrEdit", "SubMenu", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.SubMenuId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SubMenuName, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.SubMenuName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SubMenuName)
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-info" />
+    </div>
+}

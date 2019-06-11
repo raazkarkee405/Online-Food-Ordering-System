@@ -1,0 +1,121 @@
+﻿@model OnlineFoodOrderingSystem.Models.ViewModel.OrderViewModel
+
+@{
+    ViewBag.Title = "AddressAndPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    function PrintDiv() {
+        var divContents = document.getElementById("dvContents").innerHTML;
+        var printWindow = window.open('', '', 'height=200,width=400');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+
+
+
+
+
+<div class="banner-top">
+    <div class="container">
+        <h3>Address</h3>
+        <h4><a href="index.html">Home</a><label>/</label>Payment Address</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="content-top ">
+    <div class="container ">
+        <div class="spec ">
+            <h3>Address For Delivery</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class="tab-head ">
+
+            <div class=" tab-content tab-content-t ">
+                <div class="tab-pane active text-style" id="tab1">
+                    <div class=" con-w3l">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Firstname, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Lastname, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(model => model.Total, new { @class = "form-control", @readonly = "readonly" })
+                                        @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Submit" class="btn btn-default" />
+                                        @*<input type="button" class="btn btn-info" onclick="PrintDiv();" value="Print" />*@
+                                        @ViewBag.Message
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

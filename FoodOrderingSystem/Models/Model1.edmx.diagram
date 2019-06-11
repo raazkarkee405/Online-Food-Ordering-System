@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64c57d47146d435a84962eb90f7d1f1b" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineFoodDBModel.Event" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.Role" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblBanner" Width="1.5" PointX="7.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblCart" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblItem" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblOrder" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblOrderDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblSubMenu" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.tblUser" Width="1.5" PointX="5.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodDBModel.UserRole" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="OnlineFoodDBModel.FK_UserRoles_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodDBModel.FK_tblCart_tblItem" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodDBModel.FK_tblItem_tblSubMenu" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodDBModel.FK_tblOrderDetail_tblItem" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodDBModel.FK_tblOrderDetail_tblOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodDBModel.FK_UserRoles_tblUser" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

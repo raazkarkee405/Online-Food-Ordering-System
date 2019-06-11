@@ -1,0 +1,746 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18195BD7-D552-44A2-8346-FB5376DEDA98}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodOrderingSystem</RootNamespace>
+    <AssemblyName>FoodOrderingSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c6752e45808247c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\JSON.1.0.1\lib\net40\Json.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonPagedList, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonPagedList.1.0.2\lib\netstandard1.4\JsonPagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonPagedList.Extension, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonPagedList.Extension.1.0.2\lib\netstandard1.4\JsonPagedList.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.EntityFramework, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.EntityFramework.1.0.1\lib\net45\PagedList.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\css\bootstrap-table.css" />
+    <Content Include="admin\css\bootstrap-theme.css" />
+    <Content Include="admin\css\bootstrap-theme.min.css" />
+    <Content Include="admin\css\bootstrap.css" />
+    <Content Include="admin\css\bootstrap.min.css" />
+    <Content Include="admin\css\datepicker.css" />
+    <Content Include="admin\css\datepicker3.css" />
+    <Content Include="admin\css\font-awesome.min.css" />
+    <Content Include="admin\css\styles.css" />
+    <Content Include="admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="admin\js\bootstrap-datepicker.js" />
+    <Content Include="admin\js\bootstrap.js" />
+    <Content Include="admin\js\bootstrap.min.js" />
+    <Content Include="admin\js\chart-data.js" />
+    <Content Include="admin\js\chart.min.js" />
+    <Content Include="admin\js\custom.js" />
+    <Content Include="admin\js\easypiechart-data.js" />
+    <Content Include="admin\js\easypiechart.js" />
+    <Content Include="admin\js\html5shiv.min.js" />
+    <Content Include="admin\js\jquery-1.11.1.min.js" />
+    <Content Include="admin\js\lumino.glyphs.js" />
+    <Content Include="admin\js\npm.js" />
+    <Content Include="admin\js\respond.min.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="css\ajax-loader.gif" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\aos.css" />
+    <Content Include="css\bootstrap-datepicker.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap\bootstrap-grid.css" />
+    <Content Include="css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="css\css\bootstrap-reboot.css" />
+    <Content Include="css\css\mixins\_text-hide.css" />
+    <Content Include="css\flaticon.css" />
+    <Content Include="css\icomoon.css" />
+    <Content Include="css\ionicons.min.css" />
+    <Content Include="css\jquery.timepicker.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\open-iconic-bootstrap.min.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\owl.theme.default.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\util.css" />
+    <Content Include="fonts\flaticon\backup.txt" />
+    <Content Include="fonts\flaticon\font\flaticon.css" />
+    <Content Include="fonts\flaticon\font\flaticon.html" />
+    <Content Include="fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="fonts\icomoon\icomoon.svg" />
+    <Content Include="fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="fonts\JosefinSans\OFL.txt" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\about.jpg" />
+    <Content Include="images\arr.png" />
+    <Content Include="images\bg_1.jpg" />
+    <Content Include="images\bg_1.png" />
+    <Content Include="images\bg_2.jpg" />
+    <Content Include="images\bg_2.png" />
+    <Content Include="images\bg_3.jpg" />
+    <Content Include="images\bg_4.jpg" />
+    <Content Include="images\burger-1.jpg" />
+    <Content Include="images\burger-2.jpg" />
+    <Content Include="images\burger-3.jpg" />
+    <Content Include="images\cac.jpg" />
+    <Content Include="images\can.png" />
+    <Content Include="images\co.jpg" />
+    <Content Include="images\co1.jpg" />
+    <Content Include="images\co2.jpg" />
+    <Content Include="images\co3.jpg" />
+    <Content Include="images\drink-1.jpg" />
+    <Content Include="images\drink-2.jpg" />
+    <Content Include="images\drink-3.jpg" />
+    <Content Include="images\drink-4.jpg" />
+    <Content Include="images\drink-5.jpg" />
+    <Content Include="images\drink-6.jpg" />
+    <Content Include="images\drink-7.jpg" />
+    <Content Include="images\drink-8.jpg" />
+    <Content Include="images\drink-9.jpg" />
+    <Content Include="images\food.png" />
+    <Content Include="images\gallery-1.jpg" />
+    <Content Include="images\gallery-2.jpg" />
+    <Content Include="images\gallery-3.jpg" />
+    <Content Include="images\gallery-4.jpg" />
+    <Content Include="images\image_1.jpg" />
+    <Content Include="images\image_2.jpg" />
+    <Content Include="images\image_3.jpg" />
+    <Content Include="images\image_4.jpg" />
+    <Content Include="images\image_5.jpg" />
+    <Content Include="images\image_6.jpg" />
+    <Content Include="images\ItemImages\aalokabab.jpg" />
+    <Content Include="images\ItemImages\Americanchopsy.jpg" />
+    <Content Include="images\ItemImages\bg_1.jpg" />
+    <Content Include="images\ItemImages\BuffChilly.jpg" />
+    <Content Include="images\ItemImages\Butter_Paratha.jpg" />
+    <Content Include="images\ItemImages\choila.jpg" />
+    <Content Include="images\ItemImages\DaalBhat.jpg" />
+    <Content Include="images\ItemImages\dogfoodtray.jpg" />
+    <Content Include="images\ItemImages\momo.jpg" />
+    <Content Include="images\ItemImages\naanrooti.jpg" />
+    <Content Include="images\ItemImages\paneerachar.jpg" />
+    <Content Include="images\ItemImages\PaneerMasala.jpg" />
+    <Content Include="images\ItemImages\pizza-1.jpg" />
+    <Content Include="images\ItemImages\pizza-5.jpg" />
+    <Content Include="images\ItemImages\pizza.jpg" />
+    <Content Include="images\ItemImages\plasticdoghouse.jpg" />
+    <Content Include="images\ItemImages\vegfryrice.jpg" />
+    <Content Include="images\ItemImages\yomari.jpg" />
+    <Content Include="images\loc.png" />
+    <Content Include="images\pasta-1.jpg" />
+    <Content Include="images\pasta-2.jpg" />
+    <Content Include="images\pasta-3.jpg" />
+    <Content Include="images\person_1.jpg" />
+    <Content Include="images\person_2.jpg" />
+    <Content Include="images\person_3.jpg" />
+    <Content Include="images\person_4.jpg" />
+    <Content Include="images\pizza-1.jpg" />
+    <Content Include="images\pizza-2.jpg" />
+    <Content Include="images\pizza-3.jpg" />
+    <Content Include="images\pizza-4.jpg" />
+    <Content Include="images\pizza-5.jpg" />
+    <Content Include="images\pizza-6.jpg" />
+    <Content Include="images\pizza-7.jpg" />
+    <Content Include="images\pizza-8.jpg" />
+    <Content Include="images\sh.jpg" />
+    <Content Include="images\UserImages\arr.png" />
+    <Content Include="js\aos.js" />
+    <Content Include="js\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\easyResponsiveTabs.js" />
+    <Content Include="js\google-map.js" />
+    <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery-1.4.4.min.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="js\jquery-ui-1.12.1.min.js" />
+    <Content Include="js\jquery.animateNumber.min.js" />
+    <Content Include="js\jquery.easing.1.3.js" />
+    <Content Include="js\jquery.magnific-popup.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.stellar.min.js" />
+    <Content Include="js\jquery.timepicker.min.js" />
+    <Content Include="js\jquery.validate.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\jquery.validate.unobtrusive.js" />
+    <Content Include="js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="js\jquery.vide.min.js" />
+    <Content Include="js\jquery.waypoints.min.js" />
+    <Content Include="js\jquery.zoomtoo.js" />
+    <Content Include="js\jstarbox.js" />
+    <Content Include="js\login.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\map-custom.js" />
+    <Content Include="js\modernizr.custom.js" />
+    <Content Include="js\move-top.js" />
+    <Content Include="js\notify.min.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="js\range.js" />
+    <Content Include="js\scrollax.min.js" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="vendor\animate\animate.css" />
+    <Content Include="vendor\animsition\css\animsition.css" />
+    <Content Include="vendor\animsition\css\animsition.min.css" />
+    <Content Include="vendor\animsition\js\animsition.js" />
+    <Content Include="vendor\animsition\js\animsition.min.js" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\bootstrap\js\popper.js" />
+    <Content Include="vendor\bootstrap\js\popper.min.js" />
+    <Content Include="vendor\bootstrap\js\tooltip.js" />
+    <Content Include="vendor\countdowntime\countdowntime.js" />
+    <Content Include="vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="vendor\daterangepicker\moment.js" />
+    <Content Include="vendor\daterangepicker\moment.min.js" />
+    <Content Include="vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="vendor\select2\select2.css" />
+    <Content Include="vendor\select2\select2.js" />
+    <Content Include="vendor\select2\select2.min.css" />
+    <Content Include="vendor\select2\select2.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminUserController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\SubMenuController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemDB.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyMenu.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\tblBanner.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrderDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSubMenu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\BillViewModel.cs" />
+    <Compile Include="Models\ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\ViewModel\ContactViewModel.cs" />
+    <Compile Include="Models\ViewModel\EventViewModel.cs" />
+    <Compile Include="Models\ViewModel\ItemViewModel.cs" />
+    <Compile Include="Models\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModel\OrderDetailsViewModel.cs" />
+    <Compile Include="Models\ViewModel\OrderViewModel.cs" />
+    <Compile Include="Models\ViewModel\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="Models\ViewModel\ShoppingCartViewModel.cs" />
+    <Compile Include="Models\ViewModel\SubMenuViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserViewModel.cs" />
+    <Compile Include="MyRoleProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidateOnlyIncomingValuesAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\bootstrap\.DS_Store" />
+    <Content Include="css\css\.DS_Store" />
+    <Content Include="fonts\.DS_Store" />
+    <Content Include="fonts\flaticon\.DS_Store" />
+    <Content Include="fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="fonts\flaticon\license\license.pdf" />
+    <Content Include="fonts\icomoon\.DS_Store" />
+    <Content Include="fonts\icomoon\icomoon.eot" />
+    <Content Include="fonts\icomoon\icomoon.ttf" />
+    <Content Include="fonts\icomoon\icomoon.woff" />
+    <Content Include="fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="fonts\open-iconic\open-iconic.eot" />
+    <Content Include="fonts\open-iconic\open-iconic.otf" />
+    <Content Include="fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="fonts\open-iconic\open-iconic.woff" />
+    <Content Include="images\.DS_Store" />
+    <Content Include="js\.DS_Store" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="fonts\JosefinSans\JosefinSans-Bold.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-BoldItalic.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-Italic.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-Light.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-LightItalic.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-Regular.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-SemiBold.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-SemiBoldItalic.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-Thin.ttf" />
+    <Content Include="fonts\JosefinSans\JosefinSans-ThinItalic.ttf" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-Regular.otf" />
+    <Content Include="fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-SemiBold.ttf" />
+    <Content Include="fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
+    <Content Include="fonts\oswald\Oswald-Bold.ttf" />
+    <Content Include="fonts\oswald\Oswald-ExtraLight.ttf" />
+    <Content Include="fonts\oswald\Oswald-Light.ttf" />
+    <Content Include="fonts\oswald\Oswald-Medium.ttf" />
+    <Content Include="fonts\oswald\Oswald-Regular.ttf" />
+    <Content Include="fonts\oswald\Oswald-SemiBold.ttf" />
+    <Content Include="admin\css\bootstrap-theme.css.map" />
+    <Content Include="admin\css\bootstrap-theme.min.css.map" />
+    <Content Include="admin\css\bootstrap.css.map" />
+    <Content Include="admin\css\bootstrap.min.css.map" />
+    <Content Include="admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="admin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="admin\fonts\FontAwesome.otf" />
+    <Content Include="admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="admin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="admin\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="scss\.DS_Store" />
+    <Content Include="scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="scss\bootstrap\bootstrap.scss" />
+    <Content Include="scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="scss\bootstrap\mixins\_float.scss" />
+    <Content Include="scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="scss\bootstrap\mixins\_image.scss" />
+    <Content Include="scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="scss\bootstrap\mixins\_size.scss" />
+    <Content Include="scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="scss\bootstrap\utilities\_align.scss" />
+    <Content Include="scss\bootstrap\utilities\_background.scss" />
+    <Content Include="scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="scss\bootstrap\utilities\_display.scss" />
+    <Content Include="scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="scss\bootstrap\utilities\_float.scss" />
+    <Content Include="scss\bootstrap\utilities\_position.scss" />
+    <Content Include="scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="scss\bootstrap\utilities\_text.scss" />
+    <Content Include="scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="scss\bootstrap\_alert.scss" />
+    <Content Include="scss\bootstrap\_badge.scss" />
+    <Content Include="scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="scss\bootstrap\_button-group.scss" />
+    <Content Include="scss\bootstrap\_buttons.scss" />
+    <Content Include="scss\bootstrap\_card.scss" />
+    <Content Include="scss\bootstrap\_carousel.scss" />
+    <Content Include="scss\bootstrap\_close.scss" />
+    <Content Include="scss\bootstrap\_code.scss" />
+    <Content Include="scss\bootstrap\_custom-forms.scss" />
+    <Content Include="scss\bootstrap\_dropdown.scss" />
+    <Content Include="scss\bootstrap\_forms.scss" />
+    <Content Include="scss\bootstrap\_functions.scss" />
+    <Content Include="scss\bootstrap\_grid.scss" />
+    <Content Include="scss\bootstrap\_images.scss" />
+    <Content Include="scss\bootstrap\_input-group.scss" />
+    <Content Include="scss\bootstrap\_jumbotron.scss" />
+    <Content Include="scss\bootstrap\_list-group.scss" />
+    <Content Include="scss\bootstrap\_media.scss" />
+    <Content Include="scss\bootstrap\_mixins.scss" />
+    <Content Include="scss\bootstrap\_modal.scss" />
+    <Content Include="scss\bootstrap\_nav.scss" />
+    <Content Include="scss\bootstrap\_navbar.scss" />
+    <Content Include="scss\bootstrap\_pagination.scss" />
+    <Content Include="scss\bootstrap\_popover.scss" />
+    <Content Include="scss\bootstrap\_print.scss" />
+    <Content Include="scss\bootstrap\_progress.scss" />
+    <Content Include="scss\bootstrap\_reboot.scss" />
+    <Content Include="scss\bootstrap\_root.scss" />
+    <Content Include="scss\bootstrap\_tables.scss" />
+    <Content Include="scss\bootstrap\_tooltip.scss" />
+    <Content Include="scss\bootstrap\_transitions.scss" />
+    <Content Include="scss\bootstrap\_type.scss" />
+    <Content Include="scss\bootstrap\_utilities.scss" />
+    <Content Include="scss\bootstrap\_variables.scss" />
+    <Content Include="scss\style.scss" />
+    <Content Include="prepros-6.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Item.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\DashBoard.cshtml" />
+    <Content Include="Views\Home\Signup.cshtml" />
+    <Content Include="Views\ShoppingCart\ShoppingCartList.cshtml" />
+    <Content Include="Views\ShoppingCart\AddressAndPayment.cshtml" />
+    <Content Include="Views\Order\ManageOrder.cshtml" />
+    <Content Include="Views\Order\ViewOrder.cshtml" />
+    <Content Include="Views\Item\ManageItem.cshtml" />
+    <Content Include="Views\Item\AddOrEdit.cshtml" />
+    <Content Include="Views\SubMenu\ManageSubMenu.cshtml" />
+    <Content Include="Views\SubMenu\AddOrEdit.cshtml" />
+    <Content Include="Views\AdminUser\ManageUser.cshtml" />
+    <Content Include="Views\AdminUser\AddOrEdit.cshtml" />
+    <Content Include="Views\Home\ForgetPassword.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Home\ProductList.cshtml" />
+    <Content Include="Views\Home\_ViewItem.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63646</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63646/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

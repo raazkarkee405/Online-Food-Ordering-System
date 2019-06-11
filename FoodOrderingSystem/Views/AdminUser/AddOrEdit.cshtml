@@ -1,0 +1,117 @@
+﻿@model OnlineFoodOrderingSystem.Models.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "AddOrEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script type="text/javascript">
+    function showimagepreview1(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#smimg').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add/Edit User</li>
+    </ol>
+</div><!--/.row-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                View Sub Category
+                <ul class="pull-right">
+
+                    <li style="list-style:none">
+                        <a class="btn btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","SubMenu")')"><i class="fa fa-plus"></i> Add New</a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="panel-body">
+
+
+                <div class="box-body">
+                    @using (Html.BeginForm("AddOrEdit", "AdminUser", FormMethod.Post, new { @enctype = "multipart/form-data", @onsubmit = "return SubmitForm(this)" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.UserId)
+
+
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                (Size 250*300)
+                                <div class="col-md-10">
+
+                                    @Html.TextBoxFor(model => model.Photo, new { @Type = "file", @class = "form-control", @onchange = "showimagepreview1(this)" })
+                                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-10">
+
+                                    <input type="submit" value="Submit" class="btn btn-primary" />
+                                    @Html.ActionLink("Back To List", "ManageUser", null, new { @class = "btn btn-info" })
+                                    @ViewBag.Message
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
