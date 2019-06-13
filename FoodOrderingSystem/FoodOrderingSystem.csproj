@@ -204,6 +204,7 @@
     <Content Include="css\bootstrap\bootstrap-grid.css" />
     <Content Include="css\bootstrap\bootstrap-reboot.css" />
     <Content Include="css\css\bootstrap-reboot.css" />
+    <Content Include="css\css\jquery-ui.min.css" />
     <Content Include="css\css\mixins\_text-hide.css" />
     <Content Include="css\flaticon.css" />
     <Content Include="css\icomoon.css" />
@@ -386,7 +387,9 @@
     <Content Include="vendor\select2\select2.js" />
     <Content Include="vendor\select2\select2.min.css" />
     <Content Include="vendor\select2\select2.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
